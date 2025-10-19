@@ -31,10 +31,19 @@ const Academy = () => {
       subtitle: 'ALL ADMISSION & JOB NOTICES',
     },
     {
-      icon: <HelpCircle size={40} />,
-      title: 'প্রশ্ন কমনের প্রমাণ',
-      subtitle: 'QUESTION COMMON DATA',
+      icon: <FileText size={40} />,
+      title: (
+        <a
+          href='https://joykolyacademy.com/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          প্রশ্ন কমনের প্রমাণ
+        </a>
+      ),
+      subtitle: 'ALL ADMISSION & JOB NOTICES',
     },
+    
   ]
 
   return (

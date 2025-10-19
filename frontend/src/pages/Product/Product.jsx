@@ -1,17 +1,36 @@
-import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../components/context/StoreContext'
 import { assets } from '../../assets/assets'
 import './Product.css'
 
 const Product = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
   const { food_list, addToCart, cartItems, url } = useContext(StoreContext)
+  const [quantity, setQuantity] = useState(1)
   const product = food_list.find((item) => item._id === id)
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
 
   if (!product)
     return (
-      <div className="product-not-found">Product not found.</div>
+      <div className="product-not-found">
+        <h2>Product not found</h2>
+        <p>The product you're looking for doesn't exist.</p>
+        <button 
+          className="back-to-shop-btn"
+          onClick={() => {
+            navigate('/shop')
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
+        >
+          Back to Shop
+        </button>
+      </div>
     )
 
   return (
@@ -35,15 +54,58 @@ const Product = () => {
           <ul className="product-highlights">
             <li>✅🚚 Fast delivery available</li>
             <li>🔒 Secure payment</li>
+            <li>💯 Quality guaranteed</li>
+            <li>🔄 Easy returns</li>
           </ul>
-          <button
-            className="product-add-to-cart"
-            onClick={() => addToCart(product._id)}
-          >
-            {cartItems[product._id] > 0
-              ? `Added (${cartItems[product._id]})`
-              : 'Add to Cart'}
-          </button>
+          
+          <div className="quantity-selector">
+            <label htmlFor="quantity">Quantity:</label>
+            <div className="quantity-controls">
+              <button 
+                className="quantity-btn"
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                disabled={quantity <= 1}
+              >
+                -
+              </button>
+              <span className="quantity-display">{quantity}</span>
+              <button 
+                className="quantity-btn"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div className="product-actions">
+            <button
+              className="product-add-to-cart"
+              onClick={() => {
+                for (let i = 0; i < quantity; i++) {
+                  addToCart(product._id)
+                }
+                setQuantity(1)
+              }}
+            >
+              {cartItems[product._id] > 0
+                ? `Added (${cartItems[product._id]}) - Add ${quantity} More`
+                : `Add ${quantity} to Cart`}
+            </button>
+            
+            <button
+              className="product-buy-now"
+              onClick={() => {
+                for (let i = 0; i < quantity; i++) {
+                  addToCart(product._id)
+                }
+                navigate('/cart')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
       </div>
       <div className="product-reviews-section">

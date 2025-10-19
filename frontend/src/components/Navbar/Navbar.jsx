@@ -15,11 +15,15 @@ const Navbar = ({ setShowLogin }) => {
     localStorage.removeItem('token')
     setToken('')
     navigate('/')
+    // Scroll to top after logout
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleMenuClick = (menuName) => {
     setMenu(menuName)
     setMobileMenuOpen(false)
+    // Scroll to top when navigating to a new page
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleSearch = (e) => {
@@ -28,11 +32,13 @@ const Navbar = ({ setShowLogin }) => {
     navigate(`/shop?search=${encodeURIComponent(search)}`)
     setMobileMenuOpen(false)
     setShowSearch(false) // Hide after search
+    // Scroll to top when searching
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
     <div className='navbar'>
-      <Link to='/'>
+      <Link to='/' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <img className='logo' src={assets.logo} alt='' />
       </Link>
       <div
@@ -96,7 +102,10 @@ const Navbar = ({ setShowLogin }) => {
               <img src={assets.search_icon} alt='search' />
             </button>
           </form>
-          <Link to='/cart' onClick={() => setMobileMenuOpen(false)}>
+          <Link to='/cart' onClick={() => {
+            setMobileMenuOpen(false)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}>
             <img src={assets.basket_icon} alt='cart' />
             <div className={getTotalCartAmount() === 0 ? '' : 'dot'}></div>
           </Link>
@@ -117,6 +126,7 @@ const Navbar = ({ setShowLogin }) => {
                   onClick={() => {
                     navigate('/myorders')
                     setMobileMenuOpen(false)
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
                 >
                   <img src={assets.bag_icon} alt='' />
@@ -178,7 +188,7 @@ const Navbar = ({ setShowLogin }) => {
           )}
         </div>
         <div className='navbar-search-icon'>
-          <Link to='/cart'>
+          <Link to='/cart' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img src={assets.basket_icon} alt='' />
           </Link>
           <div className={getTotalCartAmount() === 0 ? '' : 'dot'}></div>
@@ -189,12 +199,18 @@ const Navbar = ({ setShowLogin }) => {
           <div className='navbar-profile'>
             <img src={assets.profile_icon} alt='' />
             <ul className='nav-profile-dropdown'>
-              <li onClick={() => navigate('/profile')}>
+              <li onClick={() => {
+                navigate('/profile')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}>
                 <img src={assets.profile_icon} alt='' />
                 <p>Profile</p>
               </li>
               <hr />
-              <li onClick={() => navigate('/myorders')}>
+              <li onClick={() => {
+                navigate('/myorders')
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }}>
                 <img src={assets.bag_icon} alt='' />
                 <p>Orders</p>
               </li>

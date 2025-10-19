@@ -102,21 +102,112 @@
   gap: 0.5rem;
 }
 
+.quantity-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.quantity-selector label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: fit-content;
+}
+
+.quantity-btn {
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #374151;
+}
+
+.quantity-btn:hover:not(:disabled) {
+  background: #f43f5e;
+  border-color: #f43f5e;
+  color: white;
+  transform: scale(1.05);
+}
+
+.quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #374151;
+  min-width: 30px;
+  text-align: center;
+}
+
+.product-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
 .product-add-to-cart {
-  background: linear-gradient(90deg, #f43f5e 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
   color: #fff;
   border: none;
   border-radius: 0.7rem;
-  padding: 0.9rem 2.2rem;
+  padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
 }
 
 .product-add-to-cart:hover {
-  background: linear-gradient(90deg, #a855f7 0%, #f43f5e 100%);
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
+}
+
+.product-buy-now {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.product-buy-now:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 .product-reviews-section {
@@ -143,30 +234,101 @@
 }
 
 .product-not-found {
-  padding: 40px;
+  padding: 4rem 2rem;
   text-align: center;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.product-not-found h2 {
   color: #f43f5e;
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.product-not-found p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.back-to-shop-btn {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+}
+
+.back-to-shop-btn:hover {
+  background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
 }
 
 @media (max-width: 900px) {
+  .product-page {
+    padding: 2rem 1rem;
+  }
+  
   .product-container {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding: 2rem 0.5rem;
+    padding: 2rem 1rem;
   }
+  
   .product-image {
     width: 100%;
     max-width: 320px;
     height: auto;
   }
+  
   .product-info-section {
     width: 100%;
-    padding: 0 0.5rem;
+    padding: 0;
   }
+  
+  .product-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+  }
+  
+  .product-actions {
+    flex-direction: column;
+  }
+  
+  .product-add-to-cart,
+  .product-buy-now {
+    min-width: 100%;
+  }
+  
+  .quantity-controls {
+    justify-content: center;
+  }
+  
   .product-reviews-section {
-    padding: 1.2rem 0.5rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .product-not-found {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .product-not-found h2 {
+    font-size: 1.5rem;
   }
 } 

@@ -43,11 +43,11 @@ const Footer = () => {
               <img src={assets.twitter_icon} alt='Twitter' />
             </a>
             <a
-              href='https://www.instagram.com/joykoly/#'
+              href='https://www.instagram.com/joykoly'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={assets.linkedin_icon} alt='LinkedIn' />
+              <img src={assets.linkedin_icon} alt='Instagram' />
             </a>
           </div>
         </div>
@@ -80,21 +80,21 @@ const Footer = () => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={assets.bkash} alt='Facebook' />
+              <img src={assets.bkash} alt='bKash' />
             </a>
             <a
               href='https://www.nagad.com.bd/'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={assets.nagod} alt='Twitter' />
+              <img src={assets.nagod} alt='Nagad' />
             </a>
             <a
               href='https://www.dutchbanglabank.com/rocket/rocket.html'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={assets.rocket} alt='LinkedIn' />
+              <img src={assets.rocket} alt='Rocket' />
             </a>
           </div>
           </ul>
