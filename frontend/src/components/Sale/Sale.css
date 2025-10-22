@@ -1,0 +1,334 @@
+/* Sale Component Styles */
+.sale-container {
+  width: 100%;
+  height: auto;
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sale-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #fef3c7, #fde68a, #fef3c7);
+  background-size: 200% 200%;
+  animation: saleBackgroundShift 20s ease infinite;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+@keyframes saleBackgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Main Sale Card */
+.sale-main-card {
+  width: 100%;
+  height: 250px;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.sale-main-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #f59e0b;
+}
+
+.sale-main-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sale-main-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Sale Overlay */
+.sale-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.sale-main-card:hover .sale-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+.sale-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.sale-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Bangla', sans-serif;
+  line-height: 1.4;
+}
+
+.sale-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fbbf24;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Bangla', sans-serif;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Sale Button */
+.sale-button {
+  background: linear-gradient(135deg, #1d970d, #2ef51c);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-family: 'Bangla', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.sale-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.sale-button:hover::before {
+  left: 100%;
+}
+
+.sale-button:hover {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.sale-button:active {
+  transform: translateY(0);
+}
+
+/* Side Cards Container */
+.sale-side-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Side Sale Cards */
+.sale-side-card {
+  width: 100%;
+  height: 250px;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.sale-side-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: #f59e0b;
+}
+
+.sale-side-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sale-side-card:hover img {
+  transform: scale(1.08);
+}
+
+.sale-side-card:hover .sale-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .sale-container {
+    flex-direction: row;
+    height: 550px;
+    gap: 2.5rem;
+    padding: 3rem 2rem;
+  }
+  
+  .sale-main-card {
+    width: 50%;
+    height: 100%;
+  }
+  
+  .sale-side-container {
+    width: 50%;
+    height: 100%;
+    gap: 0;
+  }
+  
+  .sale-side-card {
+    height: 46%;
+  }
+  
+  .sale-title {
+    font-size: 1.125rem;
+  }
+  
+  .sale-subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sale-container {
+    padding: 4rem 3rem;
+    gap: 3rem;
+  }
+  
+  .sale-title {
+    font-size: 1.25rem;
+  }
+  
+  .sale-subtitle {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sale-container {
+    padding: 1.5rem 0.5rem;
+    gap: 1.5rem;
+  }
+  
+  .sale-main-card,
+  .sale-side-card {
+    height: 200px;
+    border-radius: 15px;
+  }
+  
+  .sale-title {
+    font-size: 0.875rem;
+  }
+  
+  .sale-subtitle {
+    font-size: 1rem;
+  }
+  
+  .sale-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Special Effects */
+.sale-card-glow {
+  position: relative;
+}
+
+.sale-card-glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f59e0b, #fbbf24, #f59e0b);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sale-card-glow:hover::after {
+  opacity: 1;
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sale-main-card,
+.sale-side-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.sale-side-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.sale-side-card:nth-child(3) {
+  animation-delay: 0.4s;
+}

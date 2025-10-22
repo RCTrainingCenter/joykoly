@@ -1,5 +1,0 @@
-import { Link } from 'react-router-dom'
-// ...
-<Link to={`/product/${id}`}>
-  <img src={url + '/images/' + image} alt={name} className='food-item-image' />
-</Link>

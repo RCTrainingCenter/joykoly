@@ -47,9 +47,9 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Sale />
       <NewArrivals />
       <ServicesTag />
+      <Sale />
       <Academy />
       <Video />
 

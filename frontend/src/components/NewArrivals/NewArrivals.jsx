@@ -203,23 +203,54 @@ const NewArrivals = () => {
             <div className='text-center mt-8 sm:mt-12'>
               <a
                 href='/shop'
-                className='view-all-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 via-blue-500 to-indigo-600 text-white px-8 sm:px-16 py-3 sm:py-4 rounded-full font-["Baloo_Da_2"] font-bold tracking-wide text-base sm:text-lg shadow-lg hover:shadow-xl hover:from-indigo-700 hover:via-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:-translate-y-1 border-2 border-transparent hover:border-white/20'
+                className='view-all-button group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white px-10 sm:px-20 py-4 sm:py-5 rounded-full font-["Baloo_Da_2"] font-bold tracking-wide text-base sm:text-lg shadow-2xl hover:shadow-emerald-500/25 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 border-2 border-transparent hover:border-white/30 overflow-hidden'
               >
-                <span>সব বই দেখুন</span>
-                <svg 
-                  className="w-5 h-5 sm:w-6 sm:h-6" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                {/* Animated background effect */}
+                <div className='absolute inset-0 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+                
+                {/* Button content */}
+                <div className='relative z-10 flex items-center gap-3'>
+                  <span className='relative'>
+                    সব বই দেখুন
+                    <span className='absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse'></span>
+                  </span>
+                  
+                  {/* Animated arrow */}
+                  <div className='relative'>
+                    <svg 
+                      className="w-5 h-5 sm:w-6 sm:h-6 transform group-hover:translate-x-1 transition-transform duration-300" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2.5" 
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                    {/* Arrow trail effect */}
+                    <svg 
+                      className="absolute top-0 left-0 w-5 h-5 sm:w-6 sm:h-6 opacity-0 group-hover:opacity-50 group-hover:-translate-x-2 transition-all duration-300" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2.5" 
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Shimmer effect */}
+                <div className='absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-500'></div>
               </a>
             </div>
           </>

@@ -55,6 +55,28 @@
     font-size: 15px;
     cursor: pointer;
 }
+.login-popup-container button2{
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(10, 160, 42);
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Bangla', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: 0.3s;
+}
 .login-popup-condition{
     display: flex;
     align-items: start;
